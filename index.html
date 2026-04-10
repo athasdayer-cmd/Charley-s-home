@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨昶琳 - 互联网运营求职简历与作品集</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================= 全局变量与绿粉配色 (互联网专业版) ================= */
+        :root {
+            --bg-color: #F8FAF8;
+            --primary-green: #2B4530; 
+            --light-green: #A3B18A;
+            --primary-pink: #E88D8D;
+            --light-pink: #FFEEEE;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --card-bg: #FFFFFF;
+            --border-color: rgba(43, 69, 48, 0.1);
+            --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 40px rgba(232, 141, 141, 0.15);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .serif-text {
+            font-family: 'Noto Serif SC', serif;
+            color: var(--primary-green);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        /* ================= 导航栏 ================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: saturate(180%) blur(15px);
+            -webkit-backdrop-filter: saturate(180%) blur(15px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        nav a { color: var(--text-main); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s ease; }
+        nav a:hover { color: var(--primary-pink); }
+
+        /* ================= 通用区块布局 ================= */
+        section { max-width: 1100px; margin: 0 auto; padding: 120px 20px; }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .section-title::before {
+            content: ''; display: block; width: 6px; height: 32px; background: var(--primary-pink); border-radius: 4px;
+        }
+
+        .fade-in {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ================= 主页 (Hero) ================= */
+        .hero {
+            min-height: 85vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+            padding-top: 100px; position: relative;
+        }
+        .hero-tag { font-size: 0.9rem; font-weight: 600; color: var(--primary-pink); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 15px; background: var(--light-pink); padding: 5px 15px; border-radius: 20px;}
+        .hero h1 { font-size: 4rem; font-weight: 900; margin-bottom: 10px; color: var(--primary-green); }
+        .hero h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 25px; color: var(--light-green); }
+        
+        .hero-info-bar { display: flex; gap: 20px; margin-bottom: 25px; font-size: 0.95rem; font-weight: 500; color: var(--text-main); }
+        .hero-info-bar span { display: flex; align-items: center; gap: 5px; }
+
+        .hero p { max-width: 600px; font-size: 1.05rem; color: var(--text-muted); margin-bottom: 40px; line-height: 2; }
+
+        .hero-img-container {
+            position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+            width: 360px; height: 460px; border-radius: 20px 100px 20px 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(43, 69, 48, 0.15);
+        }
+        
+        .hero-img-container img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 15px 35px;
+            background: var(--primary-pink); color: #FFFFFF; border-radius: 30px; text-decoration: none;
+            font-weight: 600; font-size: 1.05rem; box-shadow: 0 8px 25px rgba(232, 141, 141, 0.3); transition: all 0.4s ease;
+        }
+        .btn:hover { background: var(--primary-green); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(43, 69, 48, 0.2); }
+
+        @media (max-width: 900px) {
+            .hero { align-items: center; text-align: center; }
+            .hero-img-container { position: relative; right: auto; top: auto; transform: none; margin-bottom: 40px; width: 300px; height: 380px; }
+            .hero-info-bar { flex-wrap: wrap; justify-content: center; }
+        }
+
+        /* ================= 简历经历区块 ================= */
+        .resume-section { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; }
+        
+        @media (max-width: 900px) {
+            .resume-section { grid-template-columns: 1fr; }
+        }
+
+        .resume-col-title { font-size: 1.6rem; font-weight: 700; color: var(--primary-green); margin-bottom: 30px; padding-bottom: 15px; border-bottom: 2px solid var(--border-color); }
+
+        .timeline-item { margin-bottom: 35px; padding-left: 25px; border-left: 2px solid var(--border-color); position: relative; transition: all 0.3s ease; }
+        .timeline-item:hover { border-left-color: var(--primary-pink); }
+        .timeline-item::before { content: ''; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--card-bg); border: 3px solid var(--primary-green); transition: all 0.3s ease; }
+        .timeline-item:hover::before { background: var(--primary-pink); border-color: var(--primary-pink); }
+        
+        .timeline-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; flex-wrap: wrap; }
+        .timeline-item h3 { font-size: 1.2rem; color: var(--primary-green); margin: 0; }
+        .timeline-date { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; background: var(--bg-color); padding: 2px 8px; border-radius: 4px;}
+        .timeline-item h4 { font-size: 0.95rem; color: var(--primary-pink); margin-bottom: 10px; font-weight: 600;}
+        .timeline-item p, .timeline-item ul { font-size: 0.95rem; color: var(--text-main); line-height: 1.7; margin: 0; }
+        .timeline-item ul { padding-left: 18px; margin-top: 5px; }
+
+        .edu-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .edu-tag { font-size: 0.8rem; background: var(--border-color); color: var(--primary-green); padding: 4px 10px; border-radius: 4px; font-weight: 500;}
+
+        /* ================= 作品集 ================= */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card {
+            background: var(--card-bg); border-radius: 12px; overflow: hidden; cursor: pointer; box-shadow: var(--shadow-soft);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none; color: var(--text-main);
+            display: flex; flex-direction: column; border: 1px solid var(--border-color);
+        }
+        .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: rgba(232, 141, 141, 0.3); }
+        
+        .card-img-wrapper { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; position: relative; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; }
+        .card:hover .card-img { transform: scale(1.05); }
+        
+        .card-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+        .card-category { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); background: var(--bg-color); padding: 4px 10px; border-radius: 4px; align-self: flex-start; margin-bottom: 12px; border: 1px solid var(--border-color); }
+        .card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; color: var(--primary-green);}
+        .card-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; }
+        .card-link { margin-top: auto; font-size: 0.85rem; font-weight: 600; color: var(--primary-pink); display: flex; align-items: center; gap: 5px; }
+
+        /* ================= 模态框 ================= */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 2000; display: flex; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        
+        .modal-content {
+            background: var(--card-bg); border-radius: 16px; width: 90%; max-width: 850px; max-height: 90vh; overflow-y: auto;
+            position: relative; transform: translateY(30px) scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+        
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2.5rem; color: #fff; cursor: pointer; z-index: 10; transition: transform 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.5); line-height: 1;}
+        .close-btn:hover { transform: rotate(90deg); color: var(--primary-pink);}
+
+        .modal-header { position: relative; background: #000; }
+        #modalVisualContainer { position: relative; display: flex; justify-content: center; align-items: center; background: #111;}
+        
+        .modal-img { width: 100%; height: 450px; object-fit: contain; transition: opacity 0.3s ease; }
+
+        .gallery-nav {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 15px; pointer-events: none;
+        }
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff;
+            width: 45px; height: 45px; border-radius: 50%; font-size: 1.2rem; cursor: pointer;
+            pointer-events: auto; transition: all 0.3s ease; backdrop-filter: blur(5px);
+            display: none; justify-content: center; align-items: center;
+        }
+        .nav-btn:hover { background: var(--primary-pink); border-color: var(--primary-pink); transform: scale(1.1);} 
+
+        .modal-body { padding: 40px; }
+        .modal-body h2 { font-size: 1.8rem; margin-bottom: 10px; color: var(--primary-green); }
+        .modal-body .meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; display: flex; gap: 15px; font-weight: 500; border-bottom: 1px solid var(--border-color); padding-bottom: 15px;}
+        
+        .modal-body h4 { font-size: 1.1rem; margin: 25px 0 10px; color: var(--primary-green); border-left: 4px solid var(--primary-pink); padding-left: 10px; }
+        .modal-list ul { padding-left: 20px; margin-top: 5px; color: var(--text-main); font-size: 1rem; line-height: 1.8; opacity: 0.9;}
+        .modal-list li { margin-bottom: 8px; }
+        .modal-list b { color: var(--primary-green); font-weight: 600; }
+        
+        .modal-body a { color: var(--primary-green); text-decoration: underline; font-weight: 600;}
+        .modal-body a:hover { color: var(--primary-pink); }
+
+        .modal-tags { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .modal-tag { padding: 4px 12px; background: var(--bg-color); border: 1px solid var(--border-color); color: var(--primary-green); border-radius: 4px; font-size: 0.85rem; font-weight: 500; }
+        
+        .modal-action-btn {
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 25px; padding: 12px 25px;
+            background: var(--primary-green); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;
+        }
+        .modal-action-btn:hover { background: var(--primary-pink); transform: translateY(-2px); }
+
+        /* 联系方式 */
+        .contact-section { background: var(--card-bg); border-top: 1px solid var(--border-color); padding-bottom: 100px; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .contact-text h3 { font-size: 2.2rem; margin-bottom: 15px; color: var(--primary-green); }
+        .contact-text p { color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem; }
+        .social-links { display: flex; flex-direction: column; gap: 15px; }
+        .social-links a { color: var(--text-main); text-decoration: none; display: flex; align-items: center; gap: 15px; font-size: 1.05rem; font-weight: 500; transition: color 0.3s; }
+        .icon-box { width: 40px; height: 40px; border-radius: 8px; background: var(--bg-color); color: var(--primary-green); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s ease; border: 1px solid var(--border-color); }
+        .social-links a:hover { color: var(--primary-pink); }
+        .social-links a:hover .icon-box { background: var(--primary-pink); color: #fff; border-color: var(--primary-pink); transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">基本信息</a>
+        <a href="#resume">个人轨迹</a>
+        <a href="#portfolio">项目作品</a>
+        <a href="#contact">联系方式</a>
+    </nav>
+
+    <section id="home" class="hero fade-in">
+        <div class="hero-tag">新媒体运营 / AI工具赋能 / 跨界执行者</div>
+        <h1 class="serif-text">杨昶琳</h1>
+        <h2>用 AI 赋能内容，用跨界创造价值</h2>
+        
+        <div class="hero-info-bar">
+            <span>🎂 出生年月：2003年11月</span>
+            <span>🌟 MBTI：ENTJ（90%E人）</span>
+            <span>🎓 广东财经大学 本科</span>
+        </div>
+
+        <p>
+            大学期间独立运营个人自媒体矩阵，实现从0到1冷启动，原创话题破百万播放量。熟练运用剪映及豆包、Gemini等各类AI创作工具大幅提升产出效率。兼具国家一级足球运动员的执行力与团队统筹经验，能在新媒体、外贸、执行等各岗位迅速建立标准工作流。
+        </p>
+        <a href="#resume" class="btn">查看我的履历 ➔</a>
+
+        <div class="hero-img-container">
+            <img src="ba9a06c728765fcc4959e2aa141838e6.jpg" alt="杨昶琳个人照">
+        </div>
+    </section>
+
+    <section id="resume">
+        <div class="resume-section fade-in">
+            
+            <div class="resume-left">
+                <h2 class="resume-col-title serif-text">教育经历</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>广东财经大学</h3>
+                        <span class="timeline-date">2022.09 - 2026.06</span>
+                    </div>
+                    <h4>市场营销管理 | 本科</h4>
+                    <p><strong>主修课程：</strong>市场营销学、市场营销、管理学、宏观经济学、人力资源管理。</p>
+                    
+                    <div class="edu-tags">
+                        <span class="edu-tag">国家一级足球运动员</span>
+                        <span class="edu-tag">中国足协E级教练员</span>
+                        <span class="edu-tag">英语CET-4</span>
+                        <span class="edu-tag">红十字会急救证书</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>广州市真光中学</h3>
+                        <span class="timeline-date">2017.09 - 2022.06</span>
+                    </div>
+                    <h4>初中及高中</h4>
+                    <p>6年校女足队长，2021年入选校园足球国家队，2次获得一级足球运动员证书。</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>广东省广州市南沙小学</h3>
+                        <span class="timeline-date">2010.09 - 2016.06</span>
+                    </div>
+                    <h4>小学阶段</h4>
+                    <p>培养了广泛的兴趣爱好与良好的学习习惯。</p>
+                </div>
+
+            </div>
+
+            <div class="resume-right">
+                <h2 class="resume-col-title serif-text">实践与实习经历</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>巨量势能(广州)网络科技有限公司</h3>
+                        <span class="timeline-date">2025.12 - 2026.03</span>
+                    </div>
+                    <h4>新媒体运营</h4>
+                    <ul>
+                        <li>负责房产 KOC & KOP 账号全链路运营，利用 AI 工具 (如豆包、Gemini) 高效产出楼盘测评、板块分析等内容，将单篇笔记生产周期缩短 50%。</li>
+                        <li>通过 AI 分析用户画像与热门趋势，优化内容策略，实现粉丝月均增长及互动率提升。</li>
+                        <li>运用数据分析复盘笔记数据，优化私信话术，引导沉淀私域流量，大幅提升线索转化率。</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>广州南沙人力资源发展有限公司</h3>
+                        <span class="timeline-date">2025.01 - 2025.03</span>
+                    </div>
+                    <h4>讲解员</h4>
+                    <ul>
+                        <li>负责 2025 粤港澳大湾区灯会灯组讲解与嘉宾接待工作。</li>
+                        <li>独立完成 10+ 次省厅级领导讲解服务，单次接待人数至十余人。</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>广州卓璟新能源有限公司</h3>
+                        <span class="timeline-date">2025.09 - 2025.12</span>
+                    </div>
+                    <h4>外贸业务员</h4>
+                    <ul>
+                        <li>负责 B2B 海外客户询盘回复与邮件沟通。独立开发优质供应商，累计挖掘有效客户资源 50+，成功促成 3 家工厂合作，开发两条新产品线，新增订单金额约 70 万元。</li>
+                        <li>全程跟进订单采样、验货、出货及回款流程，确保订单准时交付率 100%。</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>校新媒体部 & 锋圆文化有限公司</h3>
+                        <span class="timeline-date">2023.12 - 2025.01</span>
+                    </div>
+                    <h4>编辑 / 赛事策划</h4>
+                    <ul>
+                        <li><strong>校内：</strong>牵头策划首届校女足联赛全流程；负责超 200 人的大型活动推文制作与现场拍摄记录。</li>
+                        <li><strong>校外：</strong>在公众号“@高校足球圈”独立完成 1V1 采访与撰文排版，累计产出深度推文 20+ 篇，累计阅读量 10W+。</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>南沙爱自然飞跃丛林</h3>
+                        <span class="timeline-date">2025.12 - 2026.02</span>
+                    </div>
+                    <h4>户外项目教练员</h4>
+                    <ul>
+                        <li>负责户外项目安全须知讲解与装备标准化演示，全程引导并监督安全装备穿戴，处理体验过程中的突发问题，保障游客安全。</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="section-title serif-text fade-in">项目作品集</h2>
+        <div class="portfolio-grid">
+            
+            <a class="card fade-in"
+               data-title="Charley sheep 🐑 人像摄影"
+               data-category="视觉与摄影"
+               data-cover="fc0530f068581e57dc1fba03820e65d1.jpg"
+               data-gallery="fc0530f068581e57dc1fba03820e65d1.jpg, 946b59a9b44e253fd2390839173303c9.jpg, 1e1588fe374eb76eeb886c0a24e448bc.jpg, 8a910f956f48d28996646a7403c3c26d.jpg, 994bfcaa09643d10577f4e06308a1ff7.jpg"
+               data-work-content="<ul><li>独立负责前期沟通、拍摄踩点、引导模特情绪及后期精修。</li><li>拍摄题材涵盖校园生活、街头、情感、运动复古等多种摄影风格。</li></ul>"
+               data-work-result="<ul><li>独立完成十余次人像约拍、足球比赛摄影、研学跟拍，获得客户高度好评。</li><li>成功开展本地摄影服务变现，小红书摄影账号收获 <b>942次</b> 赞与收藏。</li><li>查看精选摄影作品：<a href='https://www.xiaohongshu.com/collection/item/690599a900e2000000000002?xhsshare=&appuid=630ecb2b0000000012002d7c&apptime=1775318495&share_id=9935f233e3074033b9fd417f29381c44&share_channel=copy_link' target='_blank'>作品合集一</a> | <a href='https://www.xiaohongshu.com/collection/item/690599f200e000000000003?xhsshare=&appuid=630ecb2b0000000012002d7c&apptime=1775318471&share_id=3b9240ffaf0c4a63b4d336ac6b176398&share_channel=copy_link' target='_blank'>作品合集二</a></li></ul>"
+               data-role="主创摄像"
+               data-tech="人像构图, 光影把控, 视觉传达, 引导与沟通"
+               data-ext-link="https://xhslink.com/m/2FUxq22v3kW">
+                <div class="card-img-wrapper">
+                    <img src="fc0530f068581e57dc1fba03820e65d1.jpg" alt="摄影作品" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">人像摄影</span>
+                    <h3 class="card-title serif-text">Charley sheep 🐑 人像摄影</h3>
+                    <p class="card-desc">致力于定格自然情绪，捕捉人物故事感。</p>
+                    <div class="card-link">查看完整画廊 ↗</div>
+                </div>
+            </a>
+
+            <a class="card fade-in" style="transition-delay: 0.1s;"
+               data-title="自媒体账号矩阵从0到1运营" 
+               data-category="新媒体运营"
+               data-image="ea0dce097c719e0c670fb3fb33073822.jpg"
+               data-work-content="<ul><li>全程独立负责个人账号的内容选题、文案创作、拍摄剪辑、发布推广及数据复盘。</li><li>熟练使用剪映与各类 AI 创作工具提升内容产出效率，打磨非传统体育生人设。</li></ul>"
+               data-work-result="<ul><li>从0到1完成账号搭建与冷启动，实现顺利起号，原创话题破百万播放量。</li><li><b>抖音号 (永日昶)：</b>主打非传统体育生日常，获赞超 <b>4.2万</b>。</li><li><b>小红书校园号 (永日童鞋)：</b>获赞与收藏突破 <b>1.0万次</b>，并实现稳定商业变现。</li></ul>"
+               data-role="独立主理人"
+               data-tech="内容策划, 账号冷启动, 视频剪辑, 数据复盘分析"
+               data-ext-link="https://xhslink.com/m/AErtfuKY5TL">
+                <div class="card-img-wrapper">
+                    <img src="ea0dce097c719e0c670fb3fb33073822.jpg" alt="项目封面" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">自媒体运营</span>
+                    <h3 class="card-title serif-text">自媒体账号矩阵运营</h3>
+                    <p class="card-desc">独立完成双平台账号搭建，原创话题破百万播放。</p>
+                    <div class="card-link">查看小红书主页 ↗</div>
+                </div>
+            </a>
+
+            <a class="card fade-in" style="transition-delay: 0.2s;"
+               data-title="AI 赋能房产矩阵号提效运营" 
+               data-category="AI工具应用"
+               data-image="https://placehold.co/800x600/2B4530/FFFFFF?text=AI+Operations"
+               data-work-content="<ul><li>负责房产 KOC & KOP 账号全链路运营，利用豆包、Gemini等 AI 工具高效产出楼盘测评内容。</li><li>通过 AI 分析用户画像与热门趋势，优化内容策略与私信转化话术。</li></ul>"
+               data-work-result="<ul><li>成功重塑图文生产流程，将单篇笔记生产周期大幅缩短 <b>50%</b>。</li><li>实现粉丝月均增长及互动率提升，引导用户沉淀至私域，提升线索转化率。</li></ul>"
+               data-role="新媒体运营"
+               data-tech="Gemini, 豆包, 提示词工程, 用户画像分析"
+               data-ext-link="">
+                <div class="card-img-wrapper">
+                    <img src="https://placehold.co/800x600/2B4530/FFFFFF?text=AI+Operations" alt="项目封面" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">AI 新媒体运营</span>
+                    <h3 class="card-title serif-text">房产内容矩阵 AI 提效</h3>
+                    <p class="card-desc">引入 AI 工具重塑图文生产流程，单篇周期缩短50%。</p>
+                    <div class="card-link">查看项目详情 ↗</div>
+                </div>
+            </a>
+
+            <a class="card fade-in" style="transition-delay: 0.3s;"
+               data-title="高燃视频剪辑与视觉创作" 
+               data-category="视频创作"
+               data-image="58371ce5a0f8e88216ed1fb9f32a775e.jpg"
+               data-work-content="<ul><li>熟练使用剪映等专业工具，负责球队日常训练、高燃赛事记录及个人 Vlog 的拍摄与后期。</li><li>把控视频整体节奏，进行精准的卡点剪辑与视觉传达设计，传递情绪共鸣。</li></ul>"
+               data-work-result="<ul><li>成功打造【广财女足】等系列合集，记录热血瞬间。</li><li>单条视频最高播放量 <b>破万</b>，在平台获得高频互动与良好曝光，有效提升球队与个人知名度。</li></ul>"
+               data-role="视频创作者"
+               data-tech="剪映, 卡点剪辑, 运镜拍摄, 节奏把控"
+               data-ext-link="https://v.douyin.com/Sd5pon8m5L0/">
+                <div class="card-img-wrapper">
+                    <img src="58371ce5a0f8e88216ed1fb9f32a775e.jpg" alt="项目封面" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">视频剪辑</span>
+                    <h3 class="card-title serif-text">高燃视频剪辑：广财女足</h3>
+                    <p class="card-desc">负责赛事记录与Vlog剪辑，擅长卡点与情绪表达。</p>
+                    <div class="card-link">观看视频作品 ↗</div>
+                </div>
+            </a>
+
+            <a class="card fade-in" style="transition-delay: 0.4s;"
+               data-title="首届校级女足联赛策划与执行" 
+               data-category="活动统筹"
+               data-image="96f6effd8687cdd512d50a2cd4cb048c.jpg"
+               data-work-content="<ul><li>作为校女足部部长，牵头策划并组织学校首届规模最大的女子足球联赛。</li><li>全面负责赛事方案制定、裁判协调、比赛流程管控、现场安全保障及后期宣传等全链路工作。</li></ul>"
+               data-work-result="<ul><li>成功利用校友资源，顺利谈下 <b>10万元</b> 赛事赞助资金。</li><li>高效统筹全校 <b>20余支</b> 参赛队伍，保障超300人大型赛事顺利进行，实现全程 <b>零安全事故</b>。</li></ul>"
+               data-role="核心策划与统筹"
+               data-tech="全流程管控, 商务沟通, 团队协调, 风险预案"
+               data-ext-link="">
+                <div class="card-img-wrapper">
+                    <img src="96f6effd8687cdd512d50a2cd4cb048c.jpg" alt="项目封面" class="card-img">
+                </div>
+                <div class="card-content">
+                    <span class="card-category">策划统筹</span>
+                    <h3 class="card-title serif-text">校女足联赛全流程策划</h3>
+                    <p class="card-desc">牵头策划校级大型赛事，展现极强统筹与执行力。</p>
+                    <div class="card-link">查看项目详情 ↗</div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title serif-text fade-in">联系沟通</h2>
+        <div class="contact-container fade-in">
+            <div class="contact-text">
+                <h3 class="serif-text">期待加入您的团队 👋</h3>
+                <p>我具备极强的学习与复盘能力，期待在互联网新媒体、运营或执行岗发挥我的跨界价值。随时欢迎您的联系。</p>
+                
+                <div class="social-links">
+                    <a href="mailto:2697271375@qq.com">
+                        <div class="icon-box">✉</div> 2697271375@qq.com
+                    </a>
+                    <a href="tel:18925114659">
+                        <div class="icon-box">☏</div> 18925114659
+                    </a>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('简历投递演示成功！');">
+                <div class="form-group"><input type="text" placeholder="您的公司 / 称谓" required></div>
+                <div class="form-group"><input type="email" placeholder="您的工作邮箱" required></div>
+                <div class="form-group"><textarea placeholder="面试邀约或沟通事项..." required></textarea></div>
+                <button type="submit" class="submit-btn">发 送 邀 约</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <div id="modalVisualContainer">
+                    <img src="" alt="项目大图" class="modal-img" id="modalImg">
+                    <div class="gallery-nav" id="galleryNav">
+                        <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+                        <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h2 id="modalTitle" class="serif-text">项目标题</h2>
+                <div class="meta">
+                    <span id="modalCategory">领域</span> | <span id="modalRole">角色</span>
+                </div>
+                
+                <h4>工作内容</h4>
+                <div id="modalWorkContent" class="modal-list"></div>
+                
+                <h4>工作成果 🏆</h4>
+                <div id="modalWorkResult" class="modal-list"></div>
+                
+                <div class="modal-tags" id="modalTech"></div>
+                
+                <a href="#" id="modalExtLink" class="modal-action-btn" target="_blank" style="display: none;">
+                    ▶ 跳转查看主页
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            const modal = document.getElementById('projectModal');
+            const closeBtn = document.getElementById('closeModal');
+            const cards = document.querySelectorAll('.card');
+
+            const mTitle = document.getElementById('modalTitle');
+            const mCategory = document.getElementById('modalCategory');
+            const mRole = document.getElementById('modalRole');
+            
+            const mWorkContent = document.getElementById('modalWorkContent');
+            const mWorkResult = document.getElementById('modalWorkResult');
+            
+            const mImg = document.getElementById('modalImg');
+            const mTech = document.getElementById('modalTech');
+            const mExtLink = document.getElementById('modalExtLink');
+            
+            const mGalleryNav = document.getElementById('galleryNav');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentGalleryImages = [];
+            let currentImageIndex = 0;
+
+            cards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const title = card.dataset.title;
+                    const category = card.dataset.category;
+                    const cover = card.dataset.cover;
+                    const galleryStr = card.dataset.gallery; 
+                    const image = card.dataset.image;
+                    
+                    const workContent = card.dataset.workContent;
+                    const workResult = card.dataset.workResult;
+                    
+                    const role = card.dataset.role;
+                    const tech = card.dataset.tech;
+                    const extLink = card.dataset.extLink;
+
+                    mTitle.textContent = title;
+                    mCategory.textContent = category;
+                    mRole.textContent = `角色: ${role}`;
+                    
+                    mWorkContent.innerHTML = workContent;
+                    mWorkResult.innerHTML = workResult;
+                    
+                    if(galleryStr) {
+                        currentGalleryImages = galleryStr.split(',').map(s => s.trim());
+                        currentImageIndex = 0;
+                        updateModalImage(currentGalleryImages[currentImageIndex]);
+                        
+                        mGalleryNav.style.display = 'flex';
+                        prevBtn.style.display = 'flex';
+                        nextBtn.style.display = 'flex';
+                    } else {
+                        currentGalleryImages = [];
+                        mImg.src = image || cover; 
+                        mImg.style.opacity = 1; 
+                        
+                        mGalleryNav.style.display = 'none';
+                        prevBtn.style.display = 'none';
+                        nextBtn.style.display = 'none';
+                    }
+
+                    if(extLink) {
+                        mExtLink.style.display = 'inline-flex';
+                        mExtLink.href = extLink;
+                    } else {
+                        mExtLink.style.display = 'none';
+                    }
+
+                    mTech.innerHTML = '';
+                    if(tech) {
+                        tech.split(',').forEach(item => {
+                            const span = document.createElement('span');
+                            span.className = 'modal-tag';
+                            span.textContent = item.trim();
+                            mTech.appendChild(span);
+                        });
+                    }
+
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            const updateModalImage = (src) => {
+                if(src) {
+                    mImg.style.opacity = 0; 
+                    setTimeout(() => {
+                        mImg.src = src; 
+                        mImg.style.opacity = 1; 
+                    }, 150); 
+                }
+            };
+
+            prevBtn.addEventListener('click', () => {
+                if(currentGalleryImages.length > 0) {
+                    currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : currentGalleryImages.length - 1;
+                    updateModalImage(currentGalleryImages[currentImageIndex]);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if(currentGalleryImages.length > 0) {
+                    currentImageIndex = (currentImageIndex < currentGalleryImages.length - 1) ? currentImageIndex + 1 : 0;
+                    updateModalImage(currentGalleryImages[currentImageIndex]);
+                }
+            });
+
+            const closeModalFn = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            };
+
+            closeBtn.addEventListener('click', closeModalFn);
+            modal.addEventListener('click', (e) => {
+                if(e.target === modal) closeModalFn();
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('active')) return;
+                if (e.key === 'Escape') closeModalFn();
+                if (e.key === 'ArrowLeft' && prevBtn.style.display !== 'none') prevBtn.click();
+                if (e.key === 'ArrowRight' && nextBtn.style.display !== 'none') nextBtn.click();
+            });
+        });
+    </script>
+</body>
+</html>
